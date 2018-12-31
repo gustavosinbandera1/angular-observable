@@ -1,0 +1,37 @@
+<table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Registration Date</th>
+        <th>E-mail address</th>
+        <th>Premium plan</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td class='collapsing'>
+          <div class='ui fitted slider checkbox'>
+            <input type="checkbox" [checked]='user.isPremium'><label></label>
+          </div>
+        </td>
+        <td>{{user.name}}</td>
+        <td>{{user.registration}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.isPremium}}</td>
+      </tr>
+    </tbody>
+    <tfoot class='full-width'>
+      <tr>
+        <th></th>
+        <th colspan='4'>
+          <div>
+            <i class='user icon' class="ui right floated small primary labeled icon button" (click)="createUser($event)"></i>Add user
+          </div>
+          <div class='ui small button' (click)='approveAll($event)'>
+            Approve All
+          </div>
+        </th>
+      </tr>
+    </tfoot>
+</table>
